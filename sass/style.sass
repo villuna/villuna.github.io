@@ -1,0 +1,52 @@
+$sidebar-width: 400px
+$sidebar-colour: #272233
+$main-padding: 150px
+
+html, body
+  margin: 0
+  padding: 0
+
+html
+  min-height: 100%
+  position: relative
+
+body
+  height: 100%
+
+*
+  box-sizing: border-box
+
+.sidebar
+  display: flex
+  flex-direction: column
+  align-items: center
+  box-shadow: 12px 0px 12px lightblue
+  width: $sidebar-width
+  left: 0
+  top: 0
+  bottom: 0
+  padding: 20px
+  position: absolute
+  background-color: $sidebar-colour
+
+  p
+    color: white
+    font-weight: 900
+    font-family: "Caveat", "Zen Maru Gothic", cursive
+    font-style: italic
+    font-size: 40px 
+    padding-right: 20px
+
+.main
+  margin-left: $sidebar-width
+  padding-top: 20px
+  padding-left: $main-padding
+  padding-right: $main-padding
+  font-size: 1.3em
+
+  p,a
+    font-weight: 350
+    font-family: "Roboto Slab", "Zen Old Mincho", serif
+
+  h1,h2,h3
+    font-family: "Arbutus Slab", "Zen Old Mincho", serif

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ config.title }}</title>
+    <link rel="stylesheet" href="{{get_url(path='style.css')}}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Caveat:wght@400..700&family=Roboto+Slab:wght@100..900&family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <img src="{{get_url(path='yuuko 500px.jpg')}}" width=250 style="border-radius: 50%">
+        <p>{{ config.title }}</p>
+    </div>
+
+    <div class="main">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+
+</html>

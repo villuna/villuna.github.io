@@ -20,10 +20,14 @@
             
             <div class="sticky-sidebar">
                 <p class="title">
-                    villuna's blog
+                    villuna's site
                 </p>
 
                 <div class={%if lang == "jp" %} "links-jp" {% else %} "links" {% endif %}>
+                    <a href="{{get_url(path='')}}">
+                        front page
+                    </a>
+
                     <a href="blog">
                         {{trans(key='blog', lang=lang)}}
                     </a>
@@ -32,7 +36,7 @@
                         {{trans(key='music', lang=lang)}}
                     </a>
 
-                    <a href="404">
+                    <a href="mystuff">
                         {{trans(key='mystuff', lang=lang)}}
                     </a>
                 </div>

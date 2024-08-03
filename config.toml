@@ -17,6 +17,16 @@ highlight_code = false
 [languages.jp]
 title = "villlunaのブロッグ"
 
+[languages.jp.translations]
+blog = "ブロッグ"
+music = "作った音楽"
+mystuff = "その他のやったこと"
+
+[translations]
+blog = "blog"
+music = "my music"
+mystuff = "other things i've done"
+
 [extra]
 # Put all your custom variables here
 

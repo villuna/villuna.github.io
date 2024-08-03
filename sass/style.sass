@@ -1,6 +1,10 @@
-$sidebar-width: 400px
+$sidebar-width: 300px
 $sidebar-colour: #272233
-$main-padding: 150px
+$main-max-width: 1000px
+$bottom-padding: 50px
+$pfp-inner-border-width: 3px
+$pfp-outer-border-width: 5px
+$pfp-side-width: 200px
 
 html, body
   margin: 0
@@ -8,41 +12,95 @@ html, body
 
 html
   min-height: 100%
+  /* Necessary so the sidebar's metrics are relative to the document and not
+   the initial containing block (the viewport) */
   position: relative
 
 body
   height: 100%
 
-*
-  box-sizing: border-box
+.container
+  display: flex
+  position: absolute
+  left: 0
+  top: 0
+  min-height: 100%
+  min-width: 100%
+
+.profile-picture-div
+  padding: $pfp-inner-border-width
+  height: $pfp-side-width
+  width: $pfp-side-width
+  border-radius: 50%
+  background-image: linear-gradient(315deg, hsla(296, 90%, 70%, 1) 0%, hsla(257, 90%, 62%, 1) 100%)
+  border: $pfp-outer-border-width solid white
+
+.profile-picture
+  border-radius: 50%
+  height: $pfp-side-width
+  width: $pfp-side-width
 
 .sidebar
+  box-sizing: border-box
   display: flex
   flex-direction: column
   align-items: center
   box-shadow: 12px 0px 12px lightblue
   width: $sidebar-width
+  flex-grow: 0
+  flex-shrink: 0
   left: 0
   top: 0
-  bottom: 0
   padding: 20px
-  position: absolute
   background-color: $sidebar-colour
 
-  p
+  p, a
+    font-family: "Caveat", "Zen Maru Gothic", cursive
+
+  p.title
     color: white
     font-weight: 900
-    font-family: "Caveat", "Zen Maru Gothic", cursive
     font-style: italic
     font-size: 40px 
     padding-right: 20px
 
+      
+.sticky-sidebar
+  position: sticky
+  display: flex
+  flex-direction: column
+  top: 0
+
+%links-base
+  display: flex
+  flex-direction: column
+
+  a
+    font-size: 30px
+    padding-bottom: 10px
+    color: lightblue
+
+  a:hover
+    color: white
+
+.links
+  @extend %links-base
+  
+.links-jp
+  @extend %links-base
+  a
+    font-size: 23px
+
 .main
-  margin-left: $sidebar-width
-  padding-top: 20px
-  padding-left: $main-padding
-  padding-right: $main-padding
+  display: flex
+  justify-content: center
+  flex-grow: 1
+
+.main-content
+  max-width: $main-max-width
+  padding: 20px 20px 20px $bottom-padding
   font-size: 1.3em
+  flex-basis: $main-max-width
 
   p,a
     font-weight: 350
@@ -50,3 +108,9 @@ body
 
   h1,h2,h3
     font-family: "Arbutus Slab", "Zen Old Mincho", serif
+
+.oh-my-gah
+  opacity: 20% 
+  position: absolute
+  bottom: 0
+  right: 0

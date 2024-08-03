@@ -12,13 +12,40 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <img src="{{get_url(path='yuuko 500px.jpg')}}" width=250 style="border-radius: 50%">
-        <p>{{ config.title }}</p>
-    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-picture-div">
+                <img class="profile-picture" src="{{get_url(path='yuuko 500px.jpg')}}" width="200px" alt="My profile picture, Yuuko Aioi from Nichijou doing double peace signs">
+            </div>
+            
+            <div class="sticky-sidebar">
+                <p class="title">
+                    villuna's blog
+                </p>
 
-    <div class="main">
-        {% block content %} {% endblock %}
+                <div class={%if lang == "jp" %} "links-jp" {% else %} "links" {% endif %}>
+                    <a href="blog">
+                        {{trans(key='blog', lang=lang)}}
+                    </a>
+
+                    <a href="https://villi-refurinn.bandcamp.com">
+                        {{trans(key='music', lang=lang)}}
+                    </a>
+
+                    <a href="404">
+                        {{trans(key='mystuff', lang=lang)}}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="main-content">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+
+        <img src="{{get_url(path='ohmygah.png')}}" class="oh-my-gah" width="100px" alt="Osaka from Azumanga Daioh looking shocked" title="oh my gah">
     </div>
 </body>
 

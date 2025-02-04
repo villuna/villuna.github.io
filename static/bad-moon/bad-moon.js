@@ -51,9 +51,14 @@ video.crossOrigin = "anonymous";
 // Setup a button to let the user play the video
 // most browsers are cool asf and don't let unmuted videos autoplay
 document.getElementById("play").onclick = (e) => {
-    video.play()
-    video.requestVideoFrameCallback(drawLoop);
-    document.getElementById("play").style.display = "none";
+    document.getElementById("play-button").style.display = "none";
+
+    if (HTMLVideoElement.prototype.requestVideoFrameCallback) {
+        video.play()
+        video.requestVideoFrameCallback(drawLoop);
+    } else {
+        document.getElementById("browser-too-old").style.display = "block";
+    }
 };
 
 // Dummy canvas which we can use to transfer image data from the GPU to the CPU

@@ -6,6 +6,7 @@
         <title>bad apple</title>
         <style>
             body {
+                font-family: monospace;
                 background-color: rgb(21, 13, 34);
             }
 
@@ -15,25 +16,55 @@
                 white-space: nowrap;
             }
 
+            #browser-too-old {
+                font-size: 2em;
+                color: rgb(253, 237, 186);
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #disclaimer {
+                margin-top: 70px;
+                color: rgb(165, 165, 165);
+            }
+
+            #play-button {
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
             button {
-                font-family: monospace;
                 font-size: 2em;
                 border-radius: 5px;
                 color: rgb(21, 13, 34);
                 background-color: rgb(253, 237, 186);
                 border: none;
                 padding: 10px 30px;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
             }
         </style>
     </head>
 
     <body>
-        <div style="display: flex; justify-content: center;">
-            <button id="play"><b>PLAY</b></button>
+        <div id="content" style="display: flex; justify-content: center;">
+            <div id="play-button">
+                <button id="play"><b>PLAY</b></button>
+
+                <p id="disclaimer">(unfortunately, this may not work on iOS Safari due to how it automatically fullscreens videos)</p>
+            </div>
+
+            <p style="display: none" id="browser-too-old">
+                Sorry, your browser is too old to play this.
+                <br>
+                :(
+            </p>
+
             <div id="bad-apple">
                 <video id="video" width="480" height="320" style="display: none;">
                     <source src="{{get_url(path='assets/bad apple.mp4')}}" type="video/mp4">
